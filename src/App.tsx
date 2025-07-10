@@ -87,6 +87,379 @@ function App() {
     </div>
   );
 
+  const WorkersPage = () => (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 relative">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-black to-gray-800 text-white" data-hero-section>
+        <div className="absolute inset-0 bg-black/20"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Text and CTAs */}
+            <div className="text-left">
+              <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
+                Flexible Gigs.<br />
+                <span className="text-orange-400" style={{color: '#F6A961'}}>Real Experience.</span><br />
+                Fast Pay.
+              </h2>
+              <p className="text-xl sm:text-2xl mb-8 leading-relaxed">
+                Turn your free time into earning time! Connect with local businesses, gain valuable experience, and get paid quickly for work that fits your schedule.
+              </p>
+              
+              <AppStoreButtons />
+            </div>
+            
+            {/* Right side - iPhone Mockup */}
+            <div className="flex justify-center lg:justify-end">
+              <IPhoneNotificationMockup />
+            </div>
+          </div>
+          
+          {/* Fallback for mobile - centered layout */}
+          <div className="lg:hidden text-center mt-12">
+            <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
+              Flexible Gigs.<br />
+              <span className="text-orange-400" style={{color: '#F6A961'}}>Real Experience.</span><br />
+              Fast Pay.
+            </h2>
+            <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+              Turn your free time into earning time! Connect with local businesses, gain valuable experience, and get paid quickly for work that fits your schedule.
+            </p>
+            
+            <AppStoreButtons />
+          </div>
+        </div>
+      </div>
+
+      {/* Worker Features */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold text-black mb-4">Find Your Perfect Gig</h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover opportunities that match your skills, schedule, and location
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Search,
+                title: "Smart Job Matching",
+                description: "Our AI algorithm finds gigs that perfectly match your skills, availability, and preferences.",
+                features: ["Skill-based matching", "Location filtering", "Schedule compatibility"]
+              },
+              {
+                icon: User,
+                title: "Build Your Profile",
+                description: "Create a compelling profile that showcases your skills and attracts top employers.",
+                features: ["Portfolio showcase", "Skill verification", "Reference system"]
+              },
+              {
+                icon: CreditCard,
+                title: "Fast Payments",
+                description: "Get paid within 24 hours of completing your work through our secure payment system.",
+                features: ["Instant notifications", "Multiple payment methods", "Payment protection"]
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-200 border border-gray-100">
+                <div className="bg-orange-400 w-16 h-16 rounded-xl flex items-center justify-center mb-6" style={{backgroundColor: '#F6A961'}}>
+                  <feature.icon className="h-8 w-8 text-white" />
+                </div>
+                <h4 className="text-2xl font-bold text-black mb-4">{feature.title}</h4>
+                <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
+                <ul className="space-y-2">
+                  {feature.features.map((item, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Journey Steps */}
+      <div className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold text-black mb-4">Your Journey to Success</h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              From signup to your first paycheck in just 5 simple steps
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            {[
+              {
+                icon: UserPlus,
+                title: "Sign Up",
+                description: "Create your account in under 2 minutes with your student email",
+                color: "bg-orange-400"
+              },
+              {
+                icon: User,
+                title: "Build Profile",
+                description: "Showcase your skills, availability, and work preferences",
+                color: "bg-black"
+              },
+              {
+                icon: Zap,
+                title: "Get Matched",
+                description: "Our AI finds perfect gigs based on your profile and location",
+                color: "bg-orange-400"
+              },
+              {
+                icon: Briefcase,
+                title: "Work Shifts",
+                description: "Show up, do great work, and build your professional reputation",
+                color: "bg-black"
+              },
+              {
+                icon: CreditCard,
+                title: "Get Paid",
+                description: "Receive payment within 24 hours of completing your shift",
+                color: "bg-orange-400"
+              }
+            ].map((step, index) => (
+              <div key={index} className="text-center group">
+                <div className="relative">
+                  <div className={`${step.color} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-200 shadow-lg`} style={step.color === 'bg-orange-400' ? {backgroundColor: '#F6A961'} : {}}>
+                    <step.icon className="h-10 w-10 text-white" />
+                  </div>
+                  {index < 4 && (
+                    <ChevronRight className="hidden md:block absolute top-8 -right-4 h-6 w-6 text-gray-400" />
+                  )}
+                </div>
+                <h4 className="text-xl font-semibold text-black mb-2">{step.title}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const EmployersPage = () => (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-black to-gray-800 text-white">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Text and CTAs */}
+            <div className="text-left">
+              <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
+                Hire On-Demand.<br />
+                <span className="text-orange-400" style={{color: '#F6A961'}}>Scale Without Stress.</span>
+              </h2>
+              <p className="text-xl sm:text-2xl mb-8 leading-relaxed">
+                Access a pool of motivated university students ready to help your business thrive during peak times, events, and staffing shortages.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <a 
+                  href="https://employer.thegigsearch.com/login"
+                  className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" 
+                  style={{backgroundColor: '#F6A961'}}
+                >
+                  Post Your First Gig Free
+                  <ChevronRight className="inline-block ml-2 h-5 w-5" />
+                </a>
+                <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200">
+                  Schedule a Demo
+                </button>
+              </div>
+              
+              <AppStoreButtons />
+            </div>
+            
+            {/* Right side - Video */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-md">
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+                  <iframe
+                    src="https://www.youtube.com/embed/xJHy4oxeDfY?si=KjQXvYOSoXTIjXpL&rel=0&modestbranding=1&showinfo=0"
+                    title="The Gig Search - How It Works for Employers"
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                
+                {/* Video overlay with play button effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl pointer-events-none"></div>
+                
+                {/* Video caption */}
+                <div className="mt-4 text-center">
+                  <p className="text-white/80 text-sm">
+                    See how The Gig Search transforms your hiring process
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Employer Features */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold text-black mb-4">Powerful Tools for Employers</h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Everything you need to find, hire, and manage temporary workers
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: FileText,
+                title: "Easy Job Posting",
+                description: "Create detailed job postings with requirements, schedules, and compensation in minutes.",
+                features: ["Template library", "Bulk posting", "Auto-renewal options"]
+              },
+              {
+                icon: Users,
+                title: "Candidate Management",
+                description: "Review applications, conduct interviews, and select the best candidates for your needs.",
+                features: ["Application tracking", "Rating system", "Background checks"]
+              },
+              {
+                icon: Settings,
+                title: "Business Dashboard",
+                description: "Monitor all your gigs, track worker performance, and manage payments from one place.",
+                features: ["Real-time analytics", "Performance metrics", "Automated reporting"]
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-200 border border-gray-100">
+                <div className="bg-orange-400 w-16 h-16 rounded-xl flex items-center justify-center mb-6" style={{backgroundColor: '#F6A961'}}>
+                  <feature.icon className="h-8 w-8 text-white" />
+                </div>
+                <h4 className="text-2xl font-bold text-black mb-4">{feature.title}</h4>
+                <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
+                <ul className="space-y-2">
+                  {feature.features.map((item, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Benefits Section */}
+      <div className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold text-black mb-4">Why Businesses Choose The Gig Search</h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Flexible staffing solutions that grow with your business needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: TrendingUp,
+                title: "Flexible Staffing",
+                description: "Scale your workforce up or down based on seasonal demands and business peaks",
+                color: "bg-orange-400"
+              },
+              {
+                icon: Target,
+                title: "Cost-Effective",
+                description: "Save on recruitment costs and long-term commitments with our temporary staffing solution",
+                color: "bg-black"
+              },
+              {
+                icon: Zap,
+                title: "AI Job Matching",
+                description: "Our smart algorithm matches you with the most qualified and available students instantly",
+                color: "bg-orange-400"
+              },
+              {
+                icon: Shield,
+                title: "Compliance & Payroll",
+                description: "We handle all the paperwork, compliance, and payroll processing for you",
+                color: "bg-black"
+              }
+            ].map((benefit, index) => (
+              <div key={index} className="text-center group">
+                <div className={`${benefit.color} w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-200 shadow-lg`} style={benefit.color === 'bg-orange-400' ? {backgroundColor: '#F6A961'} : {}}>
+                  <benefit.icon className="h-10 w-10 text-white" />
+                </div>
+                <h4 className="text-xl font-semibold text-black mb-3">{benefit.title}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonials */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold text-black mb-4">Success Stories</h3>
+            <p className="text-xl text-gray-600">See how businesses are thriving with The Gig Search</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-r from-orange-50 to-gray-50 rounded-2xl p-8">
+              <div className="flex items-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-orange-400 fill-current" style={{color: '#F6A961'}} />
+                ))}
+              </div>
+              <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed">
+                "During our holiday rush, The Gig Search helped us find reliable student workers within hours. Our revenue increased by 35% while maintaining excellent customer service."
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4" style={{backgroundColor: '#F6A961'}}>
+                  S
+                </div>
+                <div>
+                  <p className="font-semibold text-black">Sarah Chen</p>
+                  <p className="text-gray-600">Manager, Urban Coffee Co.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-gray-50 to-orange-50 rounded-2xl p-8">
+              <div className="flex items-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-orange-400 fill-current" style={{color: '#F6A961'}} />
+                ))}
+              </div>
+              <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed">
+                "The quality of students we get through The Gig Search is outstanding. They're motivated, professional, and many have become part-time regulars at our store."
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                  M
+                </div>
+                <div>
+                  <p className="font-semibold text-black">Marcus Rodriguez</p>
+                  <p className="text-gray-600">Owner, Downtown Books</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-white">
       {currentPage === 'faq' ? (
