@@ -36,7 +36,7 @@ import {
 } from 'lucide-react';
 import GlassMorphismNotifications from './components/GlassMorphismNotifications';
 import CanvaPhoneMockup from './components/CanvaPhoneMockup';
-import LaptopMockup from './components/LaptopMockup';
+import FloatingContactForm from './components/FloatingContactForm';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
@@ -245,10 +245,16 @@ function App() {
                 Access a pool of motivated university students ready to help your business thrive during peak times, events, and staffing shortages.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-                <button className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" style={{backgroundColor: '#F6A961'}}>
+                <a 
+                  href="https://employer.thegigsearch.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg inline-flex items-center justify-center"
+                  style={{backgroundColor: '#F6A961'}}
+                >
                   Post Your First Gig Free
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
-                </button>
+                </a>
                 <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200">
                   Schedule a Demo
                 </button>
@@ -259,7 +265,28 @@ function App() {
             
             {/* Right side - Video */}
             <div className="flex justify-center lg:justify-end">
-              <LaptopMockup />
+              <div className="relative w-full max-w-md">
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+                  <iframe
+                    src="https://www.youtube.com/embed/xJHy4oxeDfY?si=KjQXvYOSoXTIjXpL&rel=0&modestbranding=1&showinfo=0"
+                    title="The Gig Search - How It Works for Employers"
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                
+                {/* Video overlay with play button effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl pointer-events-none"></div>
+                
+                {/* Video caption */}
+                <div className="mt-4 text-center">
+                  <p className="text-white/80 text-sm">
+                    See how The Gig Search transforms your hiring process
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -489,15 +516,15 @@ function App() {
             <h4 className="text-lg font-semibold text-orange-400" style={{color: '#F6A961'}}>Follow Us</h4>
             <div className="flex space-x-4">
               {[
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Youtube, href: "#", label: "YouTube" }
+                { icon: Linkedin, href: "https://www.linkedin.com/company/thegigsearch/", label: "LinkedIn" },
+                { icon: Instagram, href: "https://www.instagram.com/thegigsearch.co.uk/?igsh=MTRoejdtaW5ycG5hMA%3D%3D", label: "Instagram" },
+                { icon: Youtube, href: "https://www.youtube.com/@thegigsearch", label: "YouTube" }
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-orange-400 transition-all duration-200"
                   style={{'--hover-bg': '#F6A961'} as React.CSSProperties}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F6A961'}
@@ -652,6 +679,9 @@ function App() {
 
       {/* Footer */}
       <Footer />
+      
+      {/* Floating Contact Form */}
+      <FloatingContactForm />
     </div>
   );
 }
