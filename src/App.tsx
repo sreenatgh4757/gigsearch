@@ -496,8 +496,6 @@ function App() {
             <h4 className="text-lg font-semibold text-orange-400" style={{color: '#F6A961'}}>Quick Links</h4>
             <ul className="space-y-2">
               {[
-                'About Us',
-                'Careers',
                 'Terms of Service',
                 'Privacy Policy',
                 { text: 'FAQs', action: () => setCurrentPage('faq') },
