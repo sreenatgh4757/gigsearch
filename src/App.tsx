@@ -547,30 +547,7 @@ function App() {
             </div>
           </div>
 
-          {/* Newsletter */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-orange-400" style={{color: '#F6A961'}}>Stay Updated</h4>
-            <p className="text-sm text-gray-300">
-              Get the latest updates on new features and opportunities.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400"
-                style={{'--focus-border': '#F6A961'} as React.CSSProperties}
-                onFocus={(e) => e.target.style.borderColor = '#F6A961'}
-                onBlur={(e) => e.target.style.borderColor = ''}
-              />
-              <button className="px-4 py-2 bg-orange-400 text-black rounded-r-lg hover:bg-orange-300 transition-colors duration-200 flex items-center" style={{backgroundColor: '#F6A961'}}>
-                <Send className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-
+         
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
