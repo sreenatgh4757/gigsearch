@@ -34,8 +34,6 @@ import {
   ExternalLink,
   Send
 } from 'lucide-react';
-import GlassMorphismNotifications from './components/GlassMorphismNotifications';
-import CanvaPhoneMockup from './components/CanvaPhoneMockup';
 import FloatingContactForm from './components/FloatingContactForm';
 import FAQPage from './components/FAQPage';
 
@@ -92,7 +90,8 @@ function App() {
   );
 
   const IPhoneNotificationMockup = () => (
-    <div className="relative">
+    <div className="flex justify-center lg:justify-end">
+      <div className="relative">
       {/* iPhone Frame */}
       <div 
         className="relative bg-black rounded-[3rem] p-2 shadow-2xl"
@@ -106,9 +105,7 @@ function App() {
         {/* Screen */}
         <div 
           className="relative w-full h-full rounded-[2.5rem] overflow-hidden"
-          style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-          }}
+          style={{ background: 'black' }}
         >
           {/* Status Bar */}
           <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/60 to-transparent">
@@ -131,58 +128,20 @@ function App() {
             </div>
           </div>
 
-          {/* App Interface */}
-          <div className="absolute inset-0 flex flex-col pt-16 pb-8 px-6">
-            {/* Header */}
-            <div className="text-center mb-8">
-              <h3 className="text-white text-2xl font-bold mb-2">The Gig Search</h3>
-              <p className="text-white/80 text-sm">Find your perfect gig</p>
-            </div>
-
-            {/* Notification Cards */}
-            <div className="space-y-4 flex-1">
-              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/30">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center" style={{backgroundColor: '#F6A961'}}>
-                    <Briefcase className="h-5 w-5 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white font-medium text-sm">New Gig Available!</p>
-                    <p className="text-white/80 text-xs">Barista needed at Urban Coffee</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/30">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                    <CreditCard className="h-5 w-5 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white font-medium text-sm">Payment Received</p>
-                    <p className="text-white/80 text-xs">£85 for weekend shift</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/30">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                    <Star className="h-5 w-5 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white font-medium text-sm">5-Star Rating!</p>
-                    <p className="text-white/80 text-xs">Great job at TechMart</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom CTA */}
-            <div className="mt-6">
-              <button className="w-full bg-orange-400 text-black font-semibold py-3 rounded-xl" style={{backgroundColor: '#F6A961'}}>
-                Find Gigs Near You
-              </button>
+          {/* Canva Video Container */}
+          <div className="absolute inset-0 flex items-center justify-center pt-12 pb-4">
+            <div className="w-full h-full relative bg-white rounded-t-[2rem]">
+              <iframe
+                src="https://www.canva.com/design/DAGswhHMwSA/jDnZlTr_RT-IPFSjLztCOw/watch?utm_content=DAGswhHMwSA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8476cc52e5&embed"
+                title="The Gig Search Portfolio Presentation"
+                className="absolute inset-0 w-full h-full"
+                style={{
+                  borderRadius: '2rem 2rem 2.5rem 2.5rem',
+                }}
+                frameBorder="0"
+                allow="fullscreen"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
 
@@ -193,8 +152,11 @@ function App() {
         </div>
       </div>
 
-      {/* Floating notifications */}
-      <GlassMorphismNotifications />
+      {/* Floating decorative elements */}
+      <div className="absolute -top-4 -right-4 w-8 h-8 bg-orange-400 rounded-full opacity-20 animate-pulse" style={{backgroundColor: '#F6A961'}}></div>
+      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-orange-400 rounded-full opacity-10 animate-pulse" style={{backgroundColor: '#F6A961', animationDelay: '1s'}}></div>
+      <div className="absolute top-1/2 -left-8 w-6 h-6 bg-black rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
     </div>
   );
 
@@ -794,9 +756,6 @@ function App() {
                     <Building2 className="inline-block w-4 h-4 mr-2" />
                     For Employers
                   </button>
-                  <button className="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-all duration-200 shadow-lg">
-                    Sign In
-                  </button>
                 </div>
 
                 {/* Mobile menu button */}
@@ -843,9 +802,6 @@ function App() {
                     >
                       <Building2 className="inline-block w-4 h-4 mr-2" />
                       For Employers
-                    </button>
-                    <button className="bg-black text-white px-4 py-3 rounded-lg font-medium text-left">
-                      Sign In
                     </button>
                   </div>
                 </div>
