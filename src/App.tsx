@@ -548,6 +548,29 @@ function App() {
           </div>
 
          
+          {/* Newsletter Signup */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-orange-400" style={{color: '#F6A961'}}>Stay Updated</h4>
+            <p className="text-sm text-gray-300 mb-4">Get the latest gig opportunities and updates delivered to your inbox.</p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 transition-colors"
+                style={{'--focus-border': '#F6A961'} as React.CSSProperties}
+                onFocus={(e) => e.target.style.borderColor = '#F6A961'}
+                onBlur={(e) => e.target.style.borderColor = ''}
+              />
+              <button className="bg-orange-400 text-black px-6 py-2 rounded-lg font-medium hover:bg-orange-300 transition-all duration-200 flex items-center justify-center" style={{backgroundColor: '#F6A961'}}>
+                <Send className="h-4 w-4 mr-2" />
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -560,7 +583,6 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 
