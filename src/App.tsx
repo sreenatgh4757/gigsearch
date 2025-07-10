@@ -45,6 +45,7 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [currentPage, setCurrentPage] = useState<'home' | 'faq'>('home');
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   // Listen for FAQ navigation event from footer
   useEffect(() => {
@@ -54,6 +55,20 @@ function App() {
     
     window.addEventListener('navigate-to-faq', handleFAQNavigation);
     return () => window.removeEventListener('navigate-to-faq', handleFAQNavigation);
+  }, []);
+
+  // Listen for contact form events
+  useEffect(() => {
+    const handleOpenContactForm = (event: CustomEvent) => {
+      setIsContactFormOpen(true);
+      // Pre-fill subject if provided
+      if (event.detail?.subject) {
+        // This would be handled by the FloatingContactForm component
+      }
+    };
+    
+    window.addEventListener('open-contact-form', handleOpenContactForm as EventListener);
+    return () => window.removeEventListener('open-contact-form', handleOpenContactForm as EventListener);
   }, []);
 
   const TGSLogo = () => (
@@ -280,7 +295,15 @@ function App() {
                   Post Your First Gig Free
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
                 </a>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200">
+                <button 
+                  onClick={() => {
+                    const event = new CustomEvent('open-contact-form', {
+                      detail: { subject: 'Schedule a Demo' }
+                    });
+                    window.dispatchEvent(event);
+                  }}
+                  className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200"
+                >
                   Schedule a Demo
                 </button>
               </div>
@@ -609,7 +632,10 @@ function App() {
           <Footer />
           
           {/* Floating Contact Form */}
-          <FloatingContactForm />
+          <FloatingContactForm 
+            isOpen={isContactFormOpen}
+            onClose={() => setIsContactFormOpen(false)}
+          />
         </>
       )}
     </div>
