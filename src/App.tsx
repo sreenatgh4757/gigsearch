@@ -478,14 +478,14 @@ function App() {
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-orange-400 flex-shrink-0" style={{color: '#F6A961'}} />
                 <a href="tel:+1234567890" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  +1 (234) 567-8900
+                  +44(0)7823857523
                 </a>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-orange-400 flex-shrink-0" style={{color: '#F6A961'}} />
                 <a href="mailto:hello@thegigsearch.com" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  hello@thegigsearch.com
+                  info@thegigsearch.com
                 </a>
               </div>
             </div>
