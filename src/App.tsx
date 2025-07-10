@@ -93,13 +93,13 @@ function App() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text and CTAs */}
-            <div className="text-left">
+            <div className="text-center lg:text-left">
               <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
                 Flexible Gigs.<br />
                 <span className="text-orange-400" style={{color: '#F6A961'}}>Real Experience.</span><br />
                 Fast Pay.
               </h2>
-              <p className="text-xl sm:text-2xl mb-8 leading-relaxed">
+              <p className="text-xl sm:text-2xl mb-8 leading-relaxed max-w-3xl mx-auto lg:mx-0">
                 Turn your free time into earning time! Connect with local businesses, gain valuable experience, and get paid quickly for work that fits your schedule.
               </p>
               
@@ -110,20 +110,6 @@ function App() {
             <div className="flex justify-center lg:justify-end">
               <IPhoneNotificationMockup />
             </div>
-          </div>
-          
-          {/* Fallback for mobile - centered layout */}
-          <div className="lg:hidden text-center mt-12">
-            <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
-              Flexible Gigs.<br />
-              <span className="text-orange-400" style={{color: '#F6A961'}}>Real Experience.</span><br />
-              Fast Pay.
-            </h2>
-            <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Turn your free time into earning time! Connect with local businesses, gain valuable experience, and get paid quickly for work that fits your schedule.
-            </p>
-            
-            <AppStoreButtons />
           </div>
         </div>
       </div>
@@ -249,15 +235,15 @@ function App() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text and CTAs */}
-            <div className="text-left">
+            <div className="text-center lg:text-left">
               <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
                 Hire On-Demand.<br />
                 <span className="text-orange-400" style={{color: '#F6A961'}}>Scale Without Stress.</span>
               </h2>
-              <p className="text-xl sm:text-2xl mb-8 leading-relaxed">
+              <p className="text-xl sm:text-2xl mb-8 leading-relaxed max-w-3xl mx-auto lg:mx-0">
                 Access a pool of motivated university students ready to help your business thrive during peak times, events, and staffing shortages.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
                 <button className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" style={{backgroundColor: '#F6A961'}}>
                   Post Your First Gig Free
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
