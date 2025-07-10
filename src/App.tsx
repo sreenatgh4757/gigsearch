@@ -35,7 +35,7 @@ import {
   Send
 } from 'lucide-react';
 import GlassMorphismNotifications from './components/GlassMorphismNotifications';
-import IPhoneNotificationMockup from './components/IPhoneNotificationMockup';
+import VideoPhoneMockup from './components/VideoPhoneMockup';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
@@ -108,7 +108,7 @@ function App() {
             
             {/* Right side - iPhone Mockup */}
             <div className="flex justify-center lg:justify-end">
-              <IPhoneNotificationMockup />
+              <VideoPhoneMockup />
             </div>
           </div>
         </div>
