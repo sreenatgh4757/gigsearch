@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoPhoneMockup: React.FC = () => {
+const CanvaPhoneMockup: React.FC = () => {
   return (
     <div className="flex justify-center lg:justify-end">
       <div className="relative">
@@ -19,7 +19,7 @@ const VideoPhoneMockup: React.FC = () => {
             className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-black"
           >
             {/* Status Bar */}
-            <div className="absolute top-0 left-0 right-0 z-10 bg-black/20 backdrop-blur-sm">
+            <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/60 to-transparent">
               <div className="flex justify-between items-center px-6 pt-4 pb-2">
                 <div className="text-white font-semibold text-sm">
                   9:41
@@ -39,18 +39,18 @@ const VideoPhoneMockup: React.FC = () => {
               </div>
             </div>
 
-            {/* Video Container */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-full relative">
+            {/* Canva Presentation Container */}
+            <div className="absolute inset-0 flex items-center justify-center pt-12 pb-4">
+              <div className="w-full h-full relative bg-white rounded-t-[2rem]">
                 <iframe
-                  src="https://www.youtube.com/embed/63Z_fnViJaA?si=6vWuxkrbWMyVxzQT&autoplay=1&mute=1&loop=1&playlist=63Z_fnViJaA&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-                  title="The Gig Search App Demo"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  src="https://www.canva.com/design/DAGswhHMwSA/jDnZlTr_RT-IPFSjLztCOw/watch?utm_content=DAGswhHMwSA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8476cc52e5&embed"
+                  title="The Gig Search Portfolio Presentation"
+                  className="absolute inset-0 w-full h-full"
                   style={{
-                    borderRadius: '2.5rem',
+                    borderRadius: '2rem 2rem 2.5rem 2.5rem',
                   }}
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allow="fullscreen"
                   allowFullScreen
                 ></iframe>
               </div>
@@ -63,12 +63,13 @@ const VideoPhoneMockup: React.FC = () => {
           </div>
         </div>
 
-        {/* Floating elements for visual appeal */}
+        {/* Floating decorative elements */}
         <div className="absolute -top-4 -right-4 w-8 h-8 bg-orange-400 rounded-full opacity-20 animate-pulse" style={{backgroundColor: '#F6A961'}}></div>
         <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-orange-400 rounded-full opacity-10 animate-pulse" style={{backgroundColor: '#F6A961', animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 -left-8 w-6 h-6 bg-black rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
     </div>
   );
 };
 
-export default VideoPhoneMockup;
+export default CanvaPhoneMockup;

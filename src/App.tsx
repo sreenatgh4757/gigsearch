@@ -35,7 +35,8 @@ import {
   Send
 } from 'lucide-react';
 import GlassMorphismNotifications from './components/GlassMorphismNotifications';
-import VideoPhoneMockup from './components/VideoPhoneMockup';
+import CanvaPhoneMockup from './components/CanvaPhoneMockup';
+import LaptopMockup from './components/LaptopMockup';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
@@ -108,7 +109,7 @@ function App() {
             
             {/* Right side - iPhone Mockup */}
             <div className="flex justify-center lg:justify-end">
-              <VideoPhoneMockup />
+              <CanvaPhoneMockup />
             </div>
           </div>
         </div>
@@ -258,28 +259,7 @@ function App() {
             
             {/* Right side - Video */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md">
-                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
-                  <iframe
-                    src="https://www.youtube.com/embed/xJHy4oxeDfY?si=KjQXvYOSoXTIjXpL&rel=0&modestbranding=1&showinfo=0"
-                    title="The Gig Search - How It Works for Employers"
-                    className="absolute inset-0 w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                
-                {/* Video overlay with play button effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl pointer-events-none"></div>
-                
-                {/* Video caption */}
-                <div className="mt-4 text-center">
-                  <p className="text-white/80 text-sm">
-                    See how The Gig Search transforms your hiring process
-                  </p>
-                </div>
-              </div>
+              <LaptopMockup />
             </div>
           </div>
         </div>
