@@ -37,11 +37,13 @@ import {
 import GlassMorphismNotifications from './components/GlassMorphismNotifications';
 import CanvaPhoneMockup from './components/CanvaPhoneMockup';
 import FloatingContactForm from './components/FloatingContactForm';
+import FAQPage from './components/FAQPage';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
+  const [currentPage, setCurrentPage] = useState<'home' | 'faq'>('home');
 
   const TGSLogo = () => (
     <svg width="32" height="35" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -498,14 +500,24 @@ function App() {
                 'Careers',
                 'Terms of Service',
                 'Privacy Policy',
-                'FAQs',
+                { text: 'FAQs', action: () => setCurrentPage('faq') },
                 'Contact Us'
               ].map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                    {link}
-                    <ChevronRight className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
+                  {typeof link === 'string' ? (
+                    <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                      {link}
+                      <ChevronRight className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={link.action}
+                      className="text-sm text-gray-300 hover:text-white transition-colors duration-200 flex items-center group w-full text-left"
+                    >
+                      {link.text}
+                      <ChevronRight className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -579,6 +591,40 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
+      {currentPage === 'faq' ? (
+        <div>
+          {/* Navigation for FAQ page */}
+          <nav className="bg-white shadow-lg sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-16">
+                {/* Logo */}
+                <button 
+                  onClick={() => setCurrentPage('home')}
+                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+                >
+                  <TGSLogo />
+                  <span className="text-xl font-bold text-black">The Gig Search</span>
+                </button>
+
+                {/* Back to Home */}
+                <button
+                  onClick={() => setCurrentPage('home')}
+                  className="bg-orange-400 text-black px-6 py-2 rounded-full font-medium hover:bg-orange-300 transition-all duration-200 shadow-lg"
+                  style={{backgroundColor: '#F6A961'}}
+                >
+                  Back to Home
+                </button>
+              </div>
+            </div>
+          </nav>
+          
+          <FAQPage />
+          
+          {/* Floating Contact Form */}
+          <FloatingContactForm />
+        </div>
+      ) : (
+        <>
       {/* Navigation */}
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -682,6 +728,8 @@ function App() {
       
       {/* Floating Contact Form */}
       <FloatingContactForm />
+        </>
+      )}
     </div>
   );
 }
