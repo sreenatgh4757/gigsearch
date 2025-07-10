@@ -82,7 +82,9 @@ function App() {
   const AppStoreButtons = () => (
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
       <a 
-        href="#" 
+        href="https://apps.apple.com/gb/app/the-gig-search/id6636478643"
+        target="_blank"
+        rel="noopener noreferrer"
         className="app-store-button flex items-center text-white px-6 py-3 rounded-xl shadow-lg group"
       >
         <div className="mr-3">
@@ -97,7 +99,9 @@ function App() {
       </a>
       
       <a 
-        href="#" 
+        href="https://play.google.com/store/apps/details?id=com.thegigapp"
+        target="_blank"
+        rel="noopener noreferrer"
         className="play-store-button flex items-center text-white px-6 py-3 rounded-xl shadow-lg group"
       >
         <div className="mr-3">
@@ -110,6 +114,113 @@ function App() {
           <div className="text-lg font-semibold">Google Play</div>
         </div>
       </a>
+    </div>
+  );
+
+  const IPhoneNotificationMockup = () => (
+    <div className="relative">
+      {/* iPhone Frame */}
+      <div 
+        className="relative bg-black rounded-[3rem] p-2 shadow-2xl"
+        style={{
+          width: '280px',
+          height: '580px',
+          background: 'linear-gradient(145deg, #1a1a1a, #000000)',
+          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+        }}
+      >
+        {/* Screen */}
+        <div 
+          className="relative w-full h-full rounded-[2.5rem] overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+          }}
+        >
+          {/* Status Bar */}
+          <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/60 to-transparent">
+            <div className="flex justify-between items-center px-6 pt-4 pb-2">
+              <div className="text-white font-semibold text-sm">
+                9:41
+              </div>
+              <div className="flex items-center space-x-1">
+                <div className="flex space-x-1">
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white/60 rounded-full"></div>
+                </div>
+                <div className="ml-1 text-white text-xs">100%</div>
+                <div className="w-6 h-3 border border-white rounded-sm">
+                  <div className="w-full h-full bg-white rounded-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* App Interface */}
+          <div className="absolute inset-0 flex flex-col pt-16 pb-8 px-6">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <h3 className="text-white text-2xl font-bold mb-2">The Gig Search</h3>
+              <p className="text-white/80 text-sm">Find your perfect gig</p>
+            </div>
+
+            {/* Notification Cards */}
+            <div className="space-y-4 flex-1">
+              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/30">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center" style={{backgroundColor: '#F6A961'}}>
+                    <Briefcase className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-medium text-sm">New Gig Available!</p>
+                    <p className="text-white/80 text-xs">Barista needed at Urban Coffee</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/30">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                    <CreditCard className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-medium text-sm">Payment Received</p>
+                    <p className="text-white/80 text-xs">£85 for weekend shift</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/30">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                    <Star className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-medium text-sm">5-Star Rating!</p>
+                    <p className="text-white/80 text-xs">Great job at TechMart</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="mt-6">
+              <button className="w-full bg-orange-400 text-black font-semibold py-3 rounded-xl" style={{backgroundColor: '#F6A961'}}>
+                Find Gigs Near You
+              </button>
+            </div>
+          </div>
+
+          {/* Home Indicator */}
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
+            <div className="w-32 h-1 bg-white/30 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating notifications */}
+      <GlassMorphismNotifications />
     </div>
   );
 
@@ -137,7 +248,7 @@ function App() {
             
             {/* Right side - iPhone Mockup */}
             <div className="flex justify-center lg:justify-end">
-              <CanvaPhoneMockup />
+              <IPhoneNotificationMockup />
             </div>
           </div>
           
