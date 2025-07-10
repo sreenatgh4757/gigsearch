@@ -584,7 +584,7 @@ function App() {
           </div>
         </div>
     </footer>
-  );
+   );
 
   return (
     <div className="min-h-screen bg-white">
