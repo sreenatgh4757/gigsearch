@@ -559,9 +559,9 @@ function App() {
                 <MapPin className="h-5 w-5 text-orange-400 mt-1 flex-shrink-0" style={{color: '#F6A961'}} />
                 <div>
                   <p className="text-gray-300 leading-relaxed">
-                    123 Innovation Street<br />
-                    Tech Quarter, London<br />
-                    SW1A 1AA, United Kingdom
+                    Regus, Oxford Point<br />
+                    Bournemouth<br />
+                    BH8 8GS, United Kingdom
                   </p>
                 </div>
               </div>
@@ -572,7 +572,7 @@ function App() {
                   href="tel:+442071234567" 
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  +44 (0) 20 7123 4567
+                  +44 (0) 7823857523
                 </a>
               </div>
               
