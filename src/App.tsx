@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Users, 
   Building2, 
@@ -38,38 +38,12 @@ import GlassMorphismNotifications from './components/GlassMorphismNotifications'
 import CanvaPhoneMockup from './components/CanvaPhoneMockup';
 import FloatingContactForm from './components/FloatingContactForm';
 import FAQPage from './components/FAQPage';
-import Footer from './components/Footer';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [currentPage, setCurrentPage] = useState<'home' | 'faq'>('home');
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
-
-  // Listen for FAQ navigation event from footer
-  useEffect(() => {
-    const handleFAQNavigation = () => {
-      setCurrentPage('faq');
-    };
-    
-    window.addEventListener('navigate-to-faq', handleFAQNavigation);
-    return () => window.removeEventListener('navigate-to-faq', handleFAQNavigation);
-  }, []);
-
-  // Listen for contact form events
-  useEffect(() => {
-    const handleOpenContactForm = (event: CustomEvent) => {
-      setIsContactFormOpen(true);
-      // Pre-fill subject if provided
-      if (event.detail?.subject) {
-        // This would be handled by the FloatingContactForm component
-      }
-    };
-    
-    window.addEventListener('open-contact-form', handleOpenContactForm as EventListener);
-    return () => window.removeEventListener('open-contact-form', handleOpenContactForm as EventListener);
-  }, []);
 
   const TGSLogo = () => (
     <svg width="32" height="35" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -406,15 +380,7 @@ function App() {
                   Post Your First Gig Free
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
                 </a>
-                <button 
-                  onClick={() => {
-                    const event = new CustomEvent('open-contact-form', {
-                      detail: { subject: 'Schedule a Demo' }
-                    });
-                    window.dispatchEvent(event);
-                  }}
-                  className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200"
-                >
+                <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200">
                   Schedule a Demo
                 </button>
               </div>
@@ -605,6 +571,157 @@ function App() {
     </div>
   );
 
+  const Footer = () => (
+    <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          {/* Company Info */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-3 mb-6">
+              <TGSLogo />
+              <span className="text-2xl font-bold">The Gig Search</span>
+            </div>
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-md">
+              Connecting university students with flexible work opportunities. 
+              Build your career while earning money on your own schedule.
+            </p>
+            
+            {/* Contact Information */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-orange-400 mb-4" style={{color: '#F6A961'}}>
+                Contact Information
+              </h4>
+              
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-5 w-5 text-orange-400 mt-1 flex-shrink-0" style={{color: '#F6A961'}} />
+                <div>
+                  <p className="text-gray-300 leading-relaxed">
+                    123 Innovation Street<br />
+                    Tech Quarter, London<br />
+                    SW1A 1AA, United Kingdom
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-orange-400 flex-shrink-0" style={{color: '#F6A961'}} />
+                <a 
+                  href="tel:+442071234567" 
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  +44 (0) 20 7123 4567
+                </a>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-orange-400 flex-shrink-0" style={{color: '#F6A961'}} />
+                <a 
+                  href="mailto:info@thegigsearch.com" 
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  info@thegigsearch.com
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold text-orange-400 mb-6" style={{color: '#F6A961'}}>
+              Quick Links
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <a 
+                  href="#" 
+                  className="text-gray-300 hover:text-white transition-colors flex items-center group"
+                >
+                  Terms and Conditions
+                  <ExternalLink className="h-4 w-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+              <li>
+                <button 
+                  onClick={() => setCurrentPage('faq')}
+                  className="text-gray-300 hover:text-white transition-colors flex items-center group text-left"
+                >
+                  FAQs
+                  <ExternalLink className="h-4 w-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </button>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  className="text-gray-300 hover:text-white transition-colors flex items-center group"
+                >
+                  Privacy Policy
+                  <ExternalLink className="h-4 w-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Social Media */}
+          <div>
+            <h4 className="text-lg font-semibold text-orange-400 mb-6" style={{color: '#F6A961'}}>
+              Follow Us
+            </h4>
+            <div className="space-y-4">
+              <a 
+                href="https://instagram.com/thegigsearch" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="bg-gray-800 p-2 rounded-lg social-icon transition-all duration-200">
+                  <Instagram className="h-5 w-5" />
+                </div>
+                <span>Instagram</span>
+              </a>
+              
+              <a 
+                href="https://youtube.com/@thegigsearch" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="bg-gray-800 p-2 rounded-lg social-icon transition-all duration-200">
+                  <Youtube className="h-5 w-5" />
+                </div>
+                <span>YouTube</span>
+              </a>
+              
+              <a 
+                href="https://linkedin.com/company/thegigsearch" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="bg-gray-800 p-2 rounded-lg social-icon transition-all duration-200">
+                  <Linkedin className="h-5 w-5" />
+                </div>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © 2025 The Gig Search. All rights reserved.
+            </p>
+            <p className="text-gray-400 text-sm mt-4 md:mt-0">
+              Made with ❤️ for university students
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+
   return (
     <div className="min-h-screen bg-white">
       {currentPage === 'faq' ? (
@@ -677,6 +794,9 @@ function App() {
                     <Building2 className="inline-block w-4 h-4 mr-2" />
                     For Employers
                   </button>
+                  <button className="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-all duration-200 shadow-lg">
+                    Sign In
+                  </button>
                 </div>
 
                 {/* Mobile menu button */}
@@ -724,6 +844,9 @@ function App() {
                       <Building2 className="inline-block w-4 h-4 mr-2" />
                       For Employers
                     </button>
+                    <button className="bg-black text-white px-4 py-3 rounded-lg font-medium text-left">
+                      Sign In
+                    </button>
                   </div>
                 </div>
               )}
@@ -737,10 +860,7 @@ function App() {
           <Footer />
           
           {/* Floating Contact Form */}
-          <FloatingContactForm 
-            isOpen={isContactFormOpen}
-            onClose={() => setIsContactFormOpen(false)}
-          />
+          <FloatingContactForm />
         </>
       )}
     </div>

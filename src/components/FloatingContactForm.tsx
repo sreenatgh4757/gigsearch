@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { Send, X, MessageCircle, User, Mail, FileText } from 'lucide-react';
 
-interface FloatingContactFormProps {
-  isOpen?: boolean;
-  onClose?: () => void;
-}
-
-const FloatingContactForm: React.FC<FloatingContactFormProps> = ({ 
-  isOpen: externalIsOpen, 
-  onClose: externalOnClose 
-}) => {
-  const [internalIsOpen, setInternalIsOpen] = useState(false);
+const FloatingContactForm: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,13 +11,6 @@ const FloatingContactForm: React.FC<FloatingContactFormProps> = ({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Use external state if provided, otherwise use internal state
-  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
-  const setIsOpen = externalOnClose !== undefined 
-    ? (open: boolean) => !open && externalOnClose() 
-    : setInternalIsOpen;
-
-  React.useEffect(() => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -33,23 +18,6 @@ const FloatingContactForm: React.FC<FloatingContactFormProps> = ({
       [name]: value
     }));
   };
-
-    // Listen for contact form events with pre-filled data
-    const handleOpenContactForm = (event: CustomEvent) => {
-      if (event.detail?.subject) {
-        setFormData(prev => ({
-          ...prev,
-          subject: event.detail.subject
-        }));
-      }
-      if (externalIsOpen === undefined) {
-        setInternalIsOpen(true);
-      }
-    };
-    
-    window.addEventListener('open-contact-form', handleOpenContactForm as EventListener);
-    return () => window.removeEventListener('open-contact-form', handleOpenContactForm as EventListener);
-  }, [externalIsOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,7 +46,7 @@ const FloatingContactForm: React.FC<FloatingContactFormProps> = ({
       {/* Floating Contact Button */}
       <div className="fixed right-6 bottom-6 z-50">
         <button
-          onClick={() => externalIsOpen === undefined ? setInternalIsOpen(true) : externalOnClose && externalOnClose()}
+          onClick={() => setIsOpen(true)}
           className="bg-orange-400 hover:bg-orange-300 text-black p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group"
           style={{ backgroundColor: '#F6A961' }}
           aria-label="Open contact form"
