@@ -594,9 +594,6 @@ function App() {
           {/* Main Content */}
           {activeTab === 'workers' ? <WorkersPage /> : <EmployersPage />}
 
-          {/* Footer */}
-          <Footer />
-          
           {/* Floating Contact Form */}
           <FloatingContactForm />
         </>
