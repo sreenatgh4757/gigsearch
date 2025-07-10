@@ -87,6 +87,145 @@ function App() {
     </div>
   );
 
+  const IPhoneNotificationMockup = () => (
+    <div className="relative">
+      {/* iPhone Frame */}
+      <div 
+        className="relative bg-black rounded-[3rem] p-2 shadow-2xl"
+        style={{
+          width: '280px',
+          height: '580px',
+          background: 'linear-gradient(145deg, #1a1a1a, #000000)',
+          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+        }}
+      >
+        {/* Screen */}
+        <div 
+          className="relative w-full h-full rounded-[2.5rem] overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+          }}
+        >
+          {/* Status Bar */}
+          <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/60 to-transparent">
+            <div className="flex justify-between items-center px-6 pt-4 pb-2">
+              <div className="text-white font-semibold text-sm">
+                9:41
+              </div>
+              <div className="flex items-center space-x-1">
+                <div className="flex space-x-1">
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white/60 rounded-full"></div>
+                </div>
+                <div className="ml-1 text-white text-xs">100%</div>
+                <div className="w-6 h-3 border border-white rounded-sm">
+                  <div className="w-full h-full bg-white rounded-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* App Interface */}
+          <div className="absolute inset-0 flex flex-col pt-16 pb-8 px-4">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center space-x-3">
+                <TGSLogo />
+                <div>
+                  <h3 className="text-white font-bold text-lg">The Gig Search</h3>
+                  <p className="text-white/70 text-xs">Find your next gig</p>
+                </div>
+              </div>
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                <User className="h-4 w-4 text-white" />
+              </div>
+            </div>
+
+            {/* Search Bar */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 mb-6">
+              <div className="flex items-center space-x-3">
+                <Search className="h-5 w-5 text-white/70" />
+                <div className="flex-1">
+                  <p className="text-white font-medium">Barista positions near you</p>
+                  <p className="text-white/60 text-xs">3 new opportunities</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <CreditCard className="h-4 w-4 text-orange-400" style={{color: '#F6A961'}} />
+                  <span className="text-white/70 text-xs">This Week</span>
+                </div>
+                <p className="text-white font-bold text-lg">£247</p>
+              </div>
+              <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Star className="h-4 w-4 text-yellow-400" />
+                  <span className="text-white/70 text-xs">Rating</span>
+                </div>
+                <p className="text-white font-bold text-lg">4.9</p>
+              </div>
+            </div>
+
+            {/* Recent Gigs */}
+            <div className="flex-1">
+              <h4 className="text-white font-semibold mb-4">Recent Activity</h4>
+              <div className="space-y-3">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-orange-400 rounded-lg flex items-center justify-center" style={{backgroundColor: '#F6A961'}}>
+                        <Briefcase className="h-4 w-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-white font-medium text-sm">Coffee Shop Shift</p>
+                        <p className="text-white/60 text-xs">Completed • £45</p>
+                      </div>
+                    </div>
+                    <CheckCircle className="h-4 w-4 text-green-400" />
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <Calendar className="h-4 w-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-white font-medium text-sm">Event Staff</p>
+                        <p className="text-white/60 text-xs">Tomorrow • £60</p>
+                      </div>
+                    </div>
+                    <Clock className="h-4 w-4 text-orange-400" style={{color: '#F6A961'}} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Home Indicator */}
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
+            <div className="w-32 h-1 bg-white/30 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Notifications */}
+      <GlassMorphismNotifications />
+
+      {/* Floating decorative elements */}
+      <div className="absolute -top-4 -right-4 w-8 h-8 bg-orange-400 rounded-full opacity-20 animate-pulse" style={{backgroundColor: '#F6A961'}}></div>
+      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-orange-400 rounded-full opacity-10 animate-pulse" style={{backgroundColor: '#F6A961', animationDelay: '1s'}}></div>
+      <div className="absolute top-1/2 -left-8 w-6 h-6 bg-black rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+    </div>
+  );
+
   const WorkersPage = () => (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 relative">
       {/* Hero Section */}
@@ -460,6 +599,148 @@ function App() {
     </div>
   );
 
+  const Footer = () => (
+    <footer className="bg-gradient-to-r from-black via-gray-900 to-black text-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Company Info */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center space-x-3 mb-6">
+              <TGSLogo />
+              <span className="text-xl font-bold">The Gig Search</span>
+            </div>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Connecting students with flexible work opportunities and helping businesses find reliable temporary staff.
+            </p>
+            <div className="flex space-x-4">
+              {[
+                { icon: Facebook, href: "#", label: "Facebook" },
+                { icon: Twitter, href: "#", label: "Twitter" },
+                { icon: Linkedin, href: "#", label: "LinkedIn" },
+                { icon: Instagram, href: "#", label: "Instagram" },
+                { icon: Youtube, href: "#", label: "YouTube" }
+              ].map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="social-icon w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-all duration-200"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* For Workers */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-orange-400" style={{color: '#F6A961'}}>For Workers</h4>
+            <ul className="space-y-3">
+              {[
+                { text: "Find Gigs", href: "#" },
+                { text: "How It Works", href: "#" },
+                { text: "Payment Info", href: "#" },
+                { text: "Worker Support", href: "#" },
+                { text: "Safety Guidelines", href: "#" }
+              ].map((link, index) => (
+                <li key={index}>
+                  <a href={link.href} className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                    {link.text}
+                    <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* For Employers */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-orange-400" style={{color: '#F6A961'}}>For Employers</h4>
+            <ul className="space-y-3">
+              {[
+                { text: "Post Jobs", href: "https://employer.thegigsearch.com/login" },
+                { text: "Pricing", href: "#" },
+                { text: "Success Stories", href: "#" },
+                { text: "Employer Resources", href: "#" },
+                { text: "API Documentation", href: "#" }
+              ].map((link, index) => (
+                <li key={index}>
+                  <a href={link.href} className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                    {link.text}
+                    <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support & Legal */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-orange-400" style={{color: '#F6A961'}}>Support & Legal</h4>
+            <ul className="space-y-3">
+              {[
+                { text: "FAQ", href: "#", onClick: () => setCurrentPage('faq') },
+                { text: "Terms of Service", href: "#" },
+                { text: "Privacy Policy", href: "#" },
+                { text: "Cookie Policy", href: "#" },
+                { text: "Accessibility", href: "#" }
+              ].map((link, index) => (
+                <li key={index}>
+                  {link.onClick ? (
+                    <button 
+                      onClick={link.onClick}
+                      className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group text-left"
+                    >
+                      {link.text}
+                      <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    </button>
+                  ) : (
+                    <a href={link.href} className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                      {link.text}
+                      <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+            
+            {/* Contact Info */}
+            <div className="mt-8 space-y-3">
+              <div className="flex items-center space-x-3 text-gray-300">
+                <Mail className="h-4 w-4 text-orange-400" style={{color: '#F6A961'}} />
+                <a href="mailto:info@thegigsearch.com" className="hover:text-white transition-colors duration-200">
+                  info@thegigsearch.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-300">
+                <MessageCircle className="h-4 w-4 text-orange-400" style={{color: '#F6A961'}} />
+                <a href="https://wa.me/+447123456789" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">
+                  Join our WhatsApp group
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-gray-400 text-sm">
+              © 2024 The Gig Search. All rights reserved.
+            </div>
+            <div className="flex items-center space-x-6 text-sm text-gray-400">
+              <span>Made with ❤️ for students and businesses</span>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span>All systems operational</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+
   return (
     <div className="min-h-screen bg-white">
       {currentPage === 'faq' ? (
@@ -594,6 +875,9 @@ function App() {
           {/* Main Content */}
           {activeTab === 'workers' ? <WorkersPage /> : <EmployersPage />}
 
+          {/* Footer */}
+          <Footer />
+          
           {/* Floating Contact Form */}
           <FloatingContactForm />
         </>
