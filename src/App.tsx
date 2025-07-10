@@ -459,8 +459,8 @@ function App() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" style={{color: '#F6A961'}} />
                 <div>
-                  <p className="text-sm text-gray-300">123 Innovation Drive</p>
-                  <p className="text-sm text-gray-300">Tech City, TC 12345</p>
+                  <p className="text-sm text-gray-300">Regus, Oxford point</p>
+                  <p className="text-sm text-gray-300">Bournemouth, BH8 8GS</p>
                   <a href="#" className="text-sm text-orange-400 hover:text-orange-300 inline-flex items-center mt-1" style={{color: '#F6A961'}}>
                     View on Map <ExternalLink className="h-3 w-3 ml-1" />
                   </a>
