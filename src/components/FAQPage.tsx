@@ -5,10 +5,8 @@ import {
   Users, 
   Building2, 
   MessageCircle, 
-  Phone, 
   Mail,
   ArrowRight,
-  CheckCircle,
   HelpCircle
 } from 'lucide-react';
 
@@ -95,31 +93,31 @@ const FAQAccordion: React.FC<{ faqs: FAQItem[] }> = ({ faqs }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {faqs.map((faq, index) => (
         <div
           key={index}
-          className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-200"
+          className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-orange-200"
         >
           <button
             onClick={() => toggleFAQ(index)}
-            className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-inset"
+            className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50/50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-inset group"
             style={{ '--tw-ring-color': '#F6A961' } as React.CSSProperties}
           >
-            <h3 className="text-lg font-semibold text-gray-900 pr-4 leading-relaxed">
+            <h3 className="text-lg font-semibold text-gray-900 pr-6 leading-relaxed group-hover:text-gray-800">
               {faq.question}
             </h3>
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 p-2 rounded-full transition-all duration-200 group-hover:bg-orange-50">
               {openIndex === index ? (
-                <ChevronUp className="h-5 w-5 text-orange-400" style={{ color: '#F6A961' }} />
+                <ChevronUp className="h-5 w-5 text-orange-500 transition-transform duration-200" style={{ color: '#F6A961' }} />
               ) : (
-                <ChevronDown className="h-5 w-5 text-gray-400" />
+                <ChevronDown className="h-5 w-5 text-gray-400 group-hover:text-orange-400 transition-colors duration-200" />
               )}
             </div>
           </button>
           
           {openIndex === index && (
-            <div className="px-6 pb-5">
+            <div className="px-8 pb-6 animate-fadeIn">
               <div className="pt-2 border-t border-gray-100">
                 <p className="text-gray-700 leading-relaxed text-base">
                   {faq.answer}
@@ -137,61 +135,61 @@ const FAQPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'employers' | 'workers'>('workers');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50/30">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-black to-gray-800 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center mb-6">
-            <div className="bg-orange-400 p-3 rounded-full mr-4" style={{ backgroundColor: '#F6A961' }}>
-              <HelpCircle className="h-8 w-8 text-white" />
+      <div className="bg-gradient-to-r from-black via-gray-900 to-black text-white py-20">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <div className="flex items-center justify-center mb-8">
+            <div className="bg-gradient-to-r from-orange-400 to-orange-500 p-4 rounded-2xl mr-6 shadow-lg" style={{ background: 'linear-gradient(135deg, #F6A961, #F59E0B)' }}>
+              <HelpCircle className="h-10 w-10 text-white" />
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold">
-              Frequently Asked Questions
+            <h1 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+              FAQ
             </h1>
           </div>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Find answers to common questions about The Gig Search platform
           </p>
         </div>
       </div>
 
       {/* Tab Navigation */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-        <div className="bg-white rounded-2xl shadow-lg p-2 flex">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 -mt-12 relative z-10">
+        <div className="bg-white rounded-3xl shadow-xl p-3 flex border border-gray-100">
           <button
             onClick={() => setActiveTab('workers')}
-            className={`flex-1 flex items-center justify-center px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
+            className={`flex-1 flex items-center justify-center px-8 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 ${
               activeTab === 'workers'
-                ? 'bg-orange-400 text-black shadow-md transform scale-105'
+                ? 'bg-gradient-to-r from-orange-400 to-orange-500 text-white shadow-lg transform scale-[1.02]'
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
             }`}
-            style={activeTab === 'workers' ? { backgroundColor: '#F6A961' } : {}}
+            style={activeTab === 'workers' ? { background: 'linear-gradient(135deg, #F6A961, #F59E0B)' } : {}}
           >
-            <Users className="h-5 w-5 mr-2" />
+            <Users className="h-6 w-6 mr-3" />
             For Workers
           </button>
           <button
             onClick={() => setActiveTab('employers')}
-            className={`flex-1 flex items-center justify-center px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
+            className={`flex-1 flex items-center justify-center px-8 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 ${
               activeTab === 'employers'
-                ? 'bg-orange-400 text-black shadow-md transform scale-105'
+                ? 'bg-gradient-to-r from-orange-400 to-orange-500 text-white shadow-lg transform scale-[1.02]'
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
             }`}
-            style={activeTab === 'employers' ? { backgroundColor: '#F6A961' } : {}}
+            style={activeTab === 'employers' ? { background: 'linear-gradient(135deg, #F6A961, #F59E0B)' } : {}}
           >
-            <Building2 className="h-5 w-5 mr-2" />
+            <Building2 className="h-6 w-6 mr-3" />
             For Employers
           </button>
         </div>
       </div>
 
       {/* FAQ Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
             {activeTab === 'workers' ? 'Worker Questions' : 'Employer Questions'}
           </h2>
-          <p className="text-gray-600">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {activeTab === 'workers' 
               ? 'Everything you need to know about finding and working gigs'
               : 'Learn how to effectively hire and manage temporary workers'
@@ -202,61 +200,66 @@ const FAQPage: React.FC = () => {
         <FAQAccordion faqs={activeTab === 'workers' ? workerFAQs : employerFAQs} />
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-gradient-to-r from-gray-900 to-black text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl font-bold mb-4">Still Have Questions?</h3>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      {/* Support Section */}
+      <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white py-20">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <h3 className="text-4xl font-bold mb-6">Still Have Questions?</h3>
+          <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
             Our support team is here to help you get the most out of The Gig Search platform
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <MessageCircle className="h-8 w-8 text-orange-400 mx-auto mb-3" style={{ color: '#F6A961' }} />
-              <h4 className="font-semibold mb-2">Live Chat</h4>
-              <p className="text-sm text-gray-300 mb-4">Get instant help from our support team</p>
-              <button className="text-orange-400 font-medium hover:text-orange-300 transition-colors" style={{ color: '#F6A961' }}>
-                Start Chat <ArrowRight className="inline h-4 w-4 ml-1" />
-              </button>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <Mail className="h-8 w-8 text-orange-400 mx-auto mb-3" style={{ color: '#F6A961' }} />
-              <h4 className="font-semibold mb-2">Email Support</h4>
-              <p className="text-sm text-gray-300 mb-4">Send us a detailed message</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
+              <MessageCircle className="h-12 w-12 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" style={{ color: '#F6A961' }} />
+              <h4 className="text-xl font-semibold mb-3">Join Our WhatsApp Group</h4>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Connect with our community and discuss your questions with other users and our support team
+              </p>
               <a 
-                href="mailto:hello@thegigsearch.com" 
-                className="text-orange-400 font-medium hover:text-orange-300 transition-colors"
+                href="https://wa.me/+447123456789" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-orange-400 font-semibold hover:text-orange-300 transition-colors group-hover:underline"
                 style={{ color: '#F6A961' }}
               >
-                Send Email <ArrowRight className="inline h-4 w-4 ml-1" />
+                Join WhatsApp Group <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <Phone className="h-8 w-8 text-orange-400 mx-auto mb-3" style={{ color: '#F6A961' }} />
-              <h4 className="font-semibold mb-2">Phone Support</h4>
-              <p className="text-sm text-gray-300 mb-4">Speak directly with our team</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
+              <Mail className="h-12 w-12 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" style={{ color: '#F6A961' }} />
+              <h4 className="text-xl font-semibold mb-3">Email Support</h4>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Send us a detailed message and we'll get back to you within 24 hours
+              </p>
               <a 
-                href="tel:+1234567890" 
-                className="text-orange-400 font-medium hover:text-orange-300 transition-colors"
+                href="mailto:info@thegigsearch.com" 
+                className="inline-flex items-center text-orange-400 font-semibold hover:text-orange-300 transition-colors group-hover:underline"
                 style={{ color: '#F6A961' }}
               >
-                Call Now <ArrowRight className="inline h-4 w-4 ml-1" />
+                Send Email <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
             </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-orange-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" style={{ backgroundColor: '#F6A961' }}>
-              Get Started Today
-            </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-200">
-              Contact Support
-            </button>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 };
