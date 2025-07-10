@@ -547,9 +547,6 @@ function App() {
             </div>
           </div>
 
-         
-         
-
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -562,10 +559,9 @@ function App() {
             </div>
           </div>
         </div>
-       </div>
+      </div>
     </footer>
-      
-   );
+  );
 
   return (
     <div className="min-h-screen bg-white">
