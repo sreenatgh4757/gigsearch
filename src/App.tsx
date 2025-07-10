@@ -38,12 +38,23 @@ import GlassMorphismNotifications from './components/GlassMorphismNotifications'
 import CanvaPhoneMockup from './components/CanvaPhoneMockup';
 import FloatingContactForm from './components/FloatingContactForm';
 import FAQPage from './components/FAQPage';
+import Footer from './components/Footer';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [currentPage, setCurrentPage] = useState<'home' | 'faq'>('home');
+
+  // Listen for FAQ navigation event from footer
+  useEffect(() => {
+    const handleFAQNavigation = () => {
+      setCurrentPage('faq');
+    };
+    
+    window.addEventListener('navigate-to-faq', handleFAQNavigation);
+    return () => window.removeEventListener('navigate-to-faq', handleFAQNavigation);
+  }, []);
 
   const TGSLogo = () => (
     <svg width="32" height="35" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -594,6 +605,9 @@ function App() {
           {/* Main Content */}
           {activeTab === 'workers' ? <WorkersPage /> : <EmployersPage />}
 
+          {/* Footer */}
+          <Footer />
+          
           {/* Floating Contact Form */}
           <FloatingContactForm />
         </>
