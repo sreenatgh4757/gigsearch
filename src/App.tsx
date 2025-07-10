@@ -677,9 +677,6 @@ function App() {
                     <Building2 className="inline-block w-4 h-4 mr-2" />
                     For Employers
                   </button>
-                  <button className="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-all duration-200 shadow-lg">
-                    Sign In
-                  </button>
                 </div>
 
                 {/* Mobile menu button */}
@@ -726,9 +723,6 @@ function App() {
                     >
                       <Building2 className="inline-block w-4 h-4 mr-2" />
                       For Employers
-                    </button>
-                    <button className="bg-black text-white px-4 py-3 rounded-lg font-medium text-left">
-                      Sign In
                     </button>
                   </div>
                 </div>
