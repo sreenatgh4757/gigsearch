@@ -153,7 +153,7 @@ function App() {
                 <div className="absolute inset-0 pt-16 pb-8 px-1">
                   <div className="w-full h-full relative bg-white rounded-2xl overflow-hidden">
                     <iframe
-                      src="https://www.youtube.com/embed/xJHy4oxeDfY?si=KjQXvYOSoXTIjXpL&rel=0&modestbranding=1&showinfo=0&autoplay=1&mute=1&loop=1&playlist=xJHy4oxeDfY"
+                      src="https://www.youtube.com/embed/qtMedVXIIzM?rel=0&modestbranding=1&showinfo=0&autoplay=1&mute=1&loop=1&playlist=qtMedVXIIzM"
                       title="The Gig Search Portfolio Presentation"
                       className="absolute inset-0 w-full h-full"
                       style={{
