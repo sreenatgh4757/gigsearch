@@ -157,11 +157,10 @@ function App() {
                       title="The Gig Search Portfolio Presentation"
                       className="absolute inset-0 w-full h-full"
                       style={{
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         border: 'none'
                       }}
                       frameBorder="0"
-                      allow="autoplay; fullscreen"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay; fullscreen"
                       allowFullScreen
                     ></iframe>
                   </div>
