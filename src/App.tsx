@@ -92,65 +92,89 @@ function App() {
   const IPhoneNotificationMockup = () => (
     <div className="flex justify-center lg:justify-end">
       <div className="relative">
-      {/* iPhone Frame */}
-      <div 
-        className="relative bg-black rounded-[3rem] p-2 shadow-2xl"
-        style={{
-          width: '280px',
-          height: '580px',
-          background: 'linear-gradient(145deg, #1a1a1a, #000000)',
-          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
-        }}
-      >
-        {/* Screen */}
-        <div 
-          className="relative w-full h-full rounded-[2.5rem] overflow-hidden"
-          style={{ background: 'black' }}
-        >
-          {/* Status Bar */}
-          <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/60 to-transparent">
-            <div className="flex justify-between items-center px-6 pt-4 pb-2">
-              <div className="text-white font-semibold text-sm">
-                9:41
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="flex space-x-1">
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-                </div>
-                <div className="ml-1 text-white text-xs">100%</div>
-                <div className="w-6 h-3 border border-white rounded-sm">
-                  <div className="w-full h-full bg-white rounded-sm"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Canva Video Container */}
-          <div className="absolute inset-0 flex items-center justify-center pt-12 pb-4">
-            <div className="w-full h-full relative bg-white rounded-t-[2rem]">
-              <iframe
-                src="https://www.canva.com/design/DAGswhHMwSA/jDnZlTr_RT-IPFSjLztCOw/watch?utm_content=DAGswhHMwSA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8476cc52e5&embed"
-                title="The Gig Search Portfolio Presentation"
-                className="absolute inset-0 w-full h-full"
+        {/* iPhone 14 Pro Frame */}
+        <div className="relative">
+          {/* Outer frame with realistic proportions */}
+          <div 
+            className="relative bg-black rounded-[3.5rem] p-1 shadow-2xl"
+            style={{
+              width: '300px',
+              height: '620px',
+              background: 'linear-gradient(145deg, #1f1f1f, #000000)',
+              boxShadow: '0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            {/* Screen bezel */}
+            <div 
+              className="relative w-full h-full rounded-[3rem] bg-black p-1"
+              style={{
+                background: 'linear-gradient(145deg, #0a0a0a, #1a1a1a)'
+              }}
+            >
+              {/* Actual screen */}
+              <div 
+                className="relative w-full h-full rounded-[2.8rem] overflow-hidden bg-black"
                 style={{
-                  borderRadius: '2rem 2rem 2.5rem 2.5rem',
+                  background: '#000000'
                 }}
-                frameBorder="0"
-                allow="fullscreen"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
+              >
+                {/* Dynamic Island */}
+                <div 
+                  className="absolute top-2 left-1/2 transform -translate-x-1/2 z-20 bg-black rounded-full"
+                  style={{
+                    width: '120px',
+                    height: '30px',
+                    background: '#000000'
+                  }}
+                ></div>
 
-          {/* Home Indicator */}
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
-            <div className="w-32 h-1 bg-white/30 rounded-full"></div>
+                {/* Status Bar */}
+                <div className="absolute top-0 left-0 right-0 z-10 pt-12 pb-2">
+                  <div className="flex justify-between items-center px-8">
+                    <div className="text-white font-semibold text-sm">
+                      9:41
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <div className="flex space-x-1">
+                        <div className="w-1 h-1 bg-white rounded-full"></div>
+                        <div className="w-1 h-1 bg-white rounded-full"></div>
+                        <div className="w-1 h-1 bg-white rounded-full"></div>
+                        <div className="w-1 h-1 bg-white/60 rounded-full"></div>
+                      </div>
+                      <div className="ml-1 text-white text-xs">100%</div>
+                      <div className="w-6 h-3 border border-white rounded-sm">
+                        <div className="w-full h-full bg-white rounded-sm"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Video Container - Full screen with proper padding */}
+                <div className="absolute inset-0 pt-16 pb-8 px-1">
+                  <div className="w-full h-full relative bg-white rounded-2xl overflow-hidden">
+                    <iframe
+                      src="https://www.youtube.com/embed/xJHy4oxeDfY?si=KjQXvYOSoXTIjXpL&rel=0&modestbranding=1&showinfo=0&autoplay=1&mute=1&loop=1&playlist=xJHy4oxeDfY"
+                      title="The Gig Search Portfolio Presentation"
+                      className="absolute inset-0 w-full h-full"
+                      style={{
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        border: 'none'
+                      }}
+                      frameBorder="0"
+                      allow="autoplay; fullscreen"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+
+                {/* Home Indicator */}
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="w-32 h-1 bg-white/30 rounded-full"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
       {/* Floating decorative elements */}
       <div className="absolute -top-4 -right-4 w-8 h-8 bg-orange-400 rounded-full opacity-20 animate-pulse" style={{backgroundColor: '#F6A961'}}></div>
