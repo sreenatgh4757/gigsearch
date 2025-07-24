@@ -378,7 +378,7 @@ function App() {
               <div className="relative w-full max-w-md">
                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
                   <iframe
-                    src="https://www.youtube.com/embed/xJHy4oxeDfY?si=KjQXvYOSoXTIjXpL&rel=0&modestbranding=1&showinfo=0&autoplay=1&mute=1&loop=1&playlist=xJHy4oxeDfY"
+                    src="https://www.youtube.com/embed/xJHy4oxeDfY?si=KjQXvYOSoXTIjXpL&rel=0&modestbranding=1&showinfo=0&autoplay=1&mute=0&loop=1&playlist=xJHy4oxeDfY"
                     title="The Gig Search - How It Works for Employers"
                     className="absolute inset-0 w-full h-full"
                     frameBorder="0"
