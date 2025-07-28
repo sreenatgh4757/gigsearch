@@ -231,7 +231,7 @@ function App() {
               {
                 icon: CreditCard,
                 title: "Fast Payments",
-                description: "Get paid within 24 hours of completing your work through our secure payment system.",
+                description: "Get paid Weekly and bi-weekly of completing your work through our secure payment system.",
                 features: ["Instant notifications", "Multiple payment methods", "Payment protection"]
               }
             ].map((feature, index) => (
