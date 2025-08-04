@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { Send, X, MessageCircle, User, Mail, FileText } from 'lucide-react';
 
-const FloatingContactForm: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface FloatingContactFormProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+const FloatingContactForm: React.FC<FloatingContactFormProps> = ({ 
+  isOpen: externalIsOpen, 
+  onClose: externalOnClose 
+}) => {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +18,12 @@ const FloatingContactForm: React.FC = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Use external state if provided, otherwise use internal state
+  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+  const setIsOpen = externalOnClose !== undefined 
+    ? (open: boolean) => !open && externalOnClose() 
+    : setInternalIsOpen;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,16 +58,18 @@ const FloatingContactForm: React.FC = () => {
   return (
     <>
       {/* Floating Contact Button */}
-      <div className="fixed right-6 bottom-6 z-50">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="bg-orange-400 hover:bg-orange-300 text-black p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group"
-          style={{ backgroundColor: '#F6A961' }}
-          aria-label="Open contact form"
-        >
-          <MessageCircle className="h-6 w-6 group-hover:animate-pulse" />
-        </button>
-      </div>
+      {externalIsOpen === undefined && (
+        <div className="fixed right-6 bottom-6 z-50">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="bg-orange-400 hover:bg-orange-300 text-black p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group"
+            style={{ backgroundColor: '#F6A961' }}
+            aria-label="Open contact form"
+          >
+            <MessageCircle className="h-6 w-6 group-hover:animate-pulse" />
+          </button>
+        </div>
+      )}
 
       {/* Contact Form Modal */}
       {isOpen && (
@@ -78,7 +94,7 @@ const FloatingContactForm: React.FC = () => {
                 </div>
               </div>
               <button
-                onClick={() => setIsOpen(false)}
+               onClick={() => setIsOpen(false)}
                 className="text-gray-400 hover:text-gray-600 transition-colors"
               >
                 <X className="h-6 w-6" />
