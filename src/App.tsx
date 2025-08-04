@@ -42,7 +42,6 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [currentPage, setCurrentPage] = useState<'home' | 'faq'>('home');
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   const TGSLogo = () => (
     <svg width="32" height="35" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,6 +182,18 @@ function App() {
       </div>
     </div>
   );
+
+  const openCalendly = () => {
+    // Check if Calendly is loaded
+    if (typeof window !== 'undefined' && (window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/thegigsearch-info/30min'
+      });
+    } else {
+      // Fallback to opening in new tab if widget isn't loaded
+      window.open('https://calendly.com/thegigsearch-info/30min', '_blank');
+    }
+  };
 
   const WorkersPage = () => (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 relative">
@@ -367,7 +378,7 @@ function App() {
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
                 </a>
                 <button 
-                  onClick={() => setIsContactFormOpen(true)}
+                  onClick={openCalendly}
                   className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200"
                 >
                   Schedule a Demo
@@ -842,11 +853,8 @@ function App() {
           {/* Footer */}
           <Footer />
           
-          {/* Floating Contact Form */}
-         <FloatingContactForm 
-           isOpen={isContactFormOpen}
-           onClose={() => setIsContactFormOpen(false)}
-         />
+          {/* Floating Contact Form - Independent */}
+          <FloatingContactForm />
         </>
       )}
     </div>
