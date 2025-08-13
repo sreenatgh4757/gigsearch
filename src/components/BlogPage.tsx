@@ -37,6 +37,53 @@ interface FAQItem {
 
 const BlogPage: React.FC = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  
+  // Dynamic metrics state
+  const [pageViews, setPageViews] = useState(() => {
+    const stored = localStorage.getItem('blog-page-views');
+    const baseViews = stored ? parseInt(stored) : 1247;
+    const newViews = baseViews + 1;
+    localStorage.setItem('blog-page-views', newViews.toString());
+    return newViews;
+  });
+  
+  const [likes, setLikes] = useState(() => {
+    const stored = localStorage.getItem('blog-likes');
+    return stored ? parseInt(stored) : 89;
+  });
+  
+  const [hasLiked, setHasLiked] = useState(() => {
+    return localStorage.getItem('blog-has-liked') === 'true';
+  });
+  
+  const handleLike = () => {
+    if (!hasLiked) {
+      const newLikes = likes + 1;
+      setLikes(newLikes);
+      setHasLiked(true);
+      localStorage.setItem('blog-likes', newLikes.toString());
+      localStorage.setItem('blog-has-liked', 'true');
+    }
+  };
+  
+  const handleShare = async () => {
+    const shareData = {
+      title: 'Indeed vs Gig Search: Why Students Choose Flexible Work',
+      text: 'Discover why gig search platforms offer more flexibility, higher pay, and better work-life balance than Indeed and other part-time job websites for students.',
+      url: window.location.href
+    };
+    
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      }
+    } catch (error) {
+      console.log('Error sharing:', error);
+    }
+  };
 
   const faqs: FAQItem[] = [
     {
