@@ -26,7 +26,6 @@ import {
   MessageCircle,
   Star
 } from 'lucide-react';
-import BlogPage from './BlogPage';
 
 interface BlogPost {
   id: string;
