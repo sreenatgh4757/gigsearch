@@ -383,7 +383,7 @@ function App() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <a 
-                  onClick={() => navigateToPage('blog')}
+                  onClick={() => navigateToPage('https://employer.thegigsearch.com/login')}
                   className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" 
                   style={{backgroundColor: '#F6A961'}}
                 >
