@@ -104,11 +104,11 @@ const BlogPage: React.FC = () => {
     },
     {
       question: "Are there risks?",
-      answer: "Yes — inconsistent income and no benefits, so budgeting is key. However, the flexibility often outweighs these concerns for students."
+      answer: "Yes inconsistent income and no benefits, so budgeting is key. However, the flexibility often outweighs these concerns for students."
     },
     {
       question: "Can I combine both methods?",
-      answer: "Absolutely — many students use a mix of gig work and part-time jobs to maximize their earning potential."
+      answer: "Absolutely many students use a mix of gig work and part-time jobs to maximize their earning potential."
     }
   ];
 
