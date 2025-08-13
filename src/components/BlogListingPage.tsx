@@ -129,7 +129,87 @@ const blogPosts: BlogPost[] = [
     comments: 28,
     featured: false
   },
-  
+  {
+    id: '5',
+    title: 'Building Your Personal Brand as a Student Freelancer',
+    excerpt: 'Learn how to stand out in the competitive freelance marketplace.',
+    content: 'Full content here...',
+    author: {
+      name: 'Lucy Davis',
+      avatar: '#8B5CF6',
+      initials: 'LD'
+    },
+    publishedDate: '2025-01-05',
+    readTime: '9 min read',
+    category: 'Personal Branding',
+    tags: ['Branding', 'Freelancing', 'Marketing'],
+    featuredImage: 'https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=800',
+    views: 1876,
+    likes: 98,
+    comments: 19,
+    featured: false
+  },
+  {
+    id: '6',
+    title: 'The Ultimate Guide to Remote Work for Students',
+    excerpt: 'Everything you need to know about working remotely while studying.',
+    content: 'Full content here...',
+    author: {
+      name: 'Tom Miller',
+      avatar: '#F59E0B',
+      initials: 'TM'
+    },
+    publishedDate: '2025-01-03',
+    readTime: '10 min read',
+    category: 'Remote Work',
+    tags: ['Remote Work', 'Digital Nomad', 'Online Jobs'],
+    featuredImage: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
+    views: 2198,
+    likes: 127,
+    comments: 22,
+    featured: true
+  },
+  {
+    id: '7',
+    title: 'Maximizing Your Earnings: Gig Work Strategies That Work',
+    excerpt: 'Proven strategies to increase your income from gig work.',
+    content: 'Full content here...',
+    author: {
+      name: 'Sophie Taylor',
+      avatar: '#EC4899',
+      initials: 'ST'
+    },
+    publishedDate: '2025-01-01',
+    readTime: '7 min read',
+    category: 'Income Optimization',
+    tags: ['Earnings', 'Strategy', 'Gig Economy'],
+    featuredImage: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+    views: 2456,
+    likes: 134,
+    comments: 26,
+    featured: false
+  },
+  {
+    id: '8',
+    title: 'Networking Tips for Student Entrepreneurs',
+    excerpt: 'Build meaningful connections that will boost your career.',
+    content: 'Full content here...',
+    author: {
+      name: 'Alex Garcia',
+      avatar: '#06B6D4',
+      initials: 'AG'
+    },
+    publishedDate: '2024-12-28',
+    readTime: '6 min read',
+    category: 'Networking',
+    tags: ['Networking', 'Entrepreneurship', 'Career Development'],
+    featuredImage: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
+    views: 1743,
+    likes: 87,
+    comments: 15,
+    featured: false
+  }
+];
 
 const categories = ['All', 'Gig Economy', 'Freelancing', 'Productivity', 'Job Search', 'Personal Branding', 'Remote Work', 'Income Optimization', 'Networking'];
 
