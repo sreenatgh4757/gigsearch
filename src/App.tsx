@@ -661,7 +661,7 @@ function App() {
                   onClick={() => setCurrentPage('blog')}
                   className="text-gray-300 hover:text-white transition-colors flex items-center group text-left"
                 >
-                  Blog
+                  Blogs
                   <ExternalLink className="h-4 w-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </button>
               </li>
