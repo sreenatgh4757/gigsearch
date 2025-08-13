@@ -175,9 +175,10 @@ const categories = ['All', 'Job Search', 'Gig Economy', 'Freelancing', 'Producti
 
 interface BlogListingProps {
   onNavigateToBlogPost: (slug: string) => void;
+  onNavigateToSpecificPost?: (postId: string) => void;
 }
 
-const BlogListing: React.FC<BlogListingProps> = ({ onNavigateToBlogPost }) => {
+const BlogListing: React.FC<BlogListingProps> = ({ onNavigateToBlogPost, onNavigateToSpecificPost }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
@@ -410,7 +411,13 @@ const BlogListing: React.FC<BlogListingProps> = ({ onNavigateToBlogPost }) => {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                   {currentPosts.map((post) => (
-                    <article key={post.id} className="group cursor-pointer" onClick={() => onNavigateToBlogPost(post.slug)}>
+                    <article key={post.id} className="group cursor-pointer" onClick={() => {
+                      if (post.id === '4' && onNavigateToSpecificPost) {
+                        onNavigateToSpecificPost('4');
+                      } else {
+                        onNavigateToBlogPost(post.slug);
+                      }
+                    }}>
                       <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                         <div className="relative">
                           <img
@@ -558,7 +565,13 @@ const BlogListing: React.FC<BlogListingProps> = ({ onNavigateToBlogPost }) => {
                     .sort((a, b) => b.views - a.views)
                     .slice(0, 5)
                     .map((post, index) => (
-                      <div key={post.id} className="flex items-start space-x-3 group cursor-pointer" onClick={() => onNavigateToBlogPost(post.slug)}>
+                      <div key={post.id} className="flex items-start space-x-3 group cursor-pointer" onClick={() => {
+                        if (post.id === '4' && onNavigateToSpecificPost) {
+                          onNavigateToSpecificPost('4');
+                        } else {
+                          onNavigateToBlogPost(post.slug);
+                        }
+                      }}>
                         <div className="bg-orange-100 text-orange-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                           {index + 1}
                         </div>
