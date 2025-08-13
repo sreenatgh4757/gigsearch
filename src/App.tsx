@@ -382,14 +382,14 @@ function App() {
                 Access a pool of motivated university students ready to help your business thrive during peak times, events, and staffing shortages.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <a 
+                <button
                   onClick={() => navigateToPage('https://employer.thegigsearch.com/login')}
                   className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" 
                   style={{backgroundColor: '#F6A961'}}
                 >
                   START POSTING
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
-                </a>
+                </button>
                 <button 
                   onClick={openCalendly}
                   className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200"
