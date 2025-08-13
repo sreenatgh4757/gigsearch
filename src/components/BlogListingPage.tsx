@@ -220,7 +220,6 @@ const BlogListingPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [selectedPost, setSelectedPost] = useState<string | null>(null);
   const postsPerPage = 6;
 
   // Filter posts based on search and category
@@ -291,21 +290,6 @@ const BlogListingPage: React.FC = () => {
       console.log('Error sharing:', error);
     }
   };
-
-  const handlePostClick = (postId: string) => {
-    if (postId === '4') {
-      setSelectedPost(postId);
-    }
-  };
-
-  const handleBackToListing = () => {
-    setSelectedPost(null);
-  };
-
-  // If a specific post is selected, show the detailed blog page
-  if (selectedPost === '4') {
-    return <BlogPage onBack={handleBackToListing} />;
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50/30">
@@ -465,7 +449,7 @@ const BlogListingPage: React.FC = () => {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                   {currentPosts.map((post) => (
-                    <article key={post.id} className="group cursor-pointer" onClick={() => handlePostClick(post.id)}>
+                    <article key={post.id} className="group cursor-pointer">
                       <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                         <div className="relative">
                           <img
@@ -687,3 +671,5 @@ const BlogListingPage: React.FC = () => {
 };
 
 export { BlogListingPage as default };
+
+export default BlogListingPage
