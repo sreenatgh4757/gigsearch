@@ -387,7 +387,7 @@ function App() {
                   className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" 
                   style={{backgroundColor: '#F6A961'}}
                 >
-                  View All Gig Jobs
+                  Start Posting
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
                 </a>
                 <button 
