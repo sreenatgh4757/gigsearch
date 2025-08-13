@@ -825,15 +825,15 @@ function App() {
           </nav>
           
           <BlogListing onNavigateToBlogPost={navigateToBlogPost} />
-          <BlogListing 
-            onNavigateToBlogPost={navigateToBlogPost} 
-            onNavigateToSpecificPost={(postId) => {
-              // Navigate to BlogListingPage for post id 4
-              if (postId === '4') {
-                setCurrentPage('blog-listing-detail');
-              }
-            }} 
-          />
+        </div>
+      ) : currentPage === 'blog-post' ? (
+        <div>
+          {/* Navigation for Blog Post page */}
+          <nav className="bg-white shadow-lg sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-16">
+                {/* Logo */}
+                <button 
                   onClick={() => setCurrentPage('home')}
                   className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
                 >
