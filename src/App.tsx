@@ -834,48 +834,6 @@ function App() {
               }
             }} 
           />
-                  onClick={() => setCurrentPage('home')}
-                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
-                >
-                  <TGSLogo />
-                  <span className="text-xl font-bold text-black">The Gig Search</span>
-                </button>
-
-                {/* Navigation Links */}
-                <div className="hidden md:flex items-center space-x-8">
-                  <button
-                    onClick={() => navigateToPage('home')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    Home
-                  </button>
-                  <button
-                    onClick={() => navigateToPage('faq')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    FAQ
-                  </button>
-                  <button
-                    onClick={() => navigateToPage('blog')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    Blog
-                  </button>
-                </div>
-
-                {/* Mobile Back Button */}
-                <button
-                  onClick={() => navigateToPage('blog')}
-                  className="md:hidden bg-orange-400 text-black px-4 py-2 rounded-full font-medium hover:bg-orange-300 transition-all duration-200 shadow-lg"
-                  style={{backgroundColor: '#F6A961'}}
-                >
-                  Back to Blog
-                </button>
-              </div>
-            </div>
-          </nav>
-          
-          <BlogPage />
         </div>
       ) : (
         <>
