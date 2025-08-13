@@ -131,7 +131,6 @@ function App() {
                   style={{
                     width: '120px',
                     height: '30px',
-                    navigateToPage('blog');
                   }}
                 ></div>
 
