@@ -196,7 +196,7 @@ const BlogPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">The Student Work Dilemma</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6">
-              Balancing studies and earning money is a common challenge for university students. Many turn to Indeed and other part-time job websites to find opportunities. While these platforms offer many listings, they often require lengthy application processes and fixed schedules — not ideal for students with busy timetables.
+              Balancing studies and earning money is a common challenge for university students. Many turn to Indeed and other part-time job websites to find opportunities. While these platforms offer many listings, they often require lengthy application processes and fixed schedules not ideal for students with busy timetables.
             </p>
             <p className="text-gray-700 leading-relaxed">
               Gig search platforms like Fiverr, Upwork, and TaskRabbit, however, are revolutionizing student work by offering flexible, fast-paying jobs. This guide compares the two approaches and explains why gig work might be the smarter choice for university life.
