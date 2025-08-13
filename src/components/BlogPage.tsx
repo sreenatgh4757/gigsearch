@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { 
+interface BlogPageProps {
+  onBack?: () => void;
+}
+
   Clock, 
   DollarSign, 
   Zap, 
@@ -30,12 +34,14 @@ import {
   Share2
 } from 'lucide-react';
 
+import { ChevronLeft } from 'lucide-react';
+
 interface FAQItem {
   question: string;
   answer: string;
 }
 
-const BlogPage: React.FC = () => {
+const BlogPage: React.FC<BlogPageProps> = ({ onBack }) => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   
   // Dynamic metrics state
@@ -119,6 +125,21 @@ const BlogPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* SEO Meta Tags would be handled by a head component in a real app */}
+      
+      {/* Back Button */}
+      {onBack && (
+        <div className="bg-white border-b border-gray-200 sticky top-0 z-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <button
+              onClick={onBack}
+              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <ChevronLeft className="h-5 w-5 mr-2" />
+              Back to Blog
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-black via-gray-900 to-black text-white py-20 overflow-hidden">
