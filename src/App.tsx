@@ -382,6 +382,7 @@ function App() {
                 >
                   Explore Gig Jobs
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
+                </a>
                 <button 
                   onClick={openCalendly}
                   className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200"
