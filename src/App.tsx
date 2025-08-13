@@ -35,7 +35,7 @@ import {
   Send
 } from 'lucide-react';
 import FAQPage from './components/FAQPage';
-import BlogPage from './components/BlogPage';
+import BlogListingPage from './components/BlogListingPage';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
@@ -375,11 +375,11 @@ function App() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <a 
-                  onClick={() => navigateToPage('home')}
+                  onClick={() => navigateToPage('blog')}
                   className="bg-orange-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-300 transform hover:scale-105 transition-all duration-200 shadow-lg" 
                   style={{backgroundColor: '#F6A961'}}
                 >
-                  Explore Gig Jobs
+                  View All Gig Jobs
                   <ChevronRight className="inline-block ml-2 h-5 w-5" />
                 </a>
                 <button 
@@ -782,19 +782,41 @@ function App() {
                   <span className="text-xl font-bold text-black">The Gig Search</span>
                 </button>
 
-                {/* Back to Home */}
+                {/* Navigation Links */}
+                <div className="hidden md:flex items-center space-x-8">
+                  <button
+                    onClick={() => navigateToPage('home')}
+                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
+                  >
+                    Home
+                  </button>
+                  <button
+                    onClick={() => navigateToPage('faq')}
+                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
+                  >
+                    FAQ
+                  </button>
+                  <button
+                    className="bg-orange-400 text-black px-4 py-2 rounded-full font-medium shadow-lg"
+                    style={{backgroundColor: '#F6A961'}}
+                  >
+                    Blog
+                  </button>
+                </div>
+
+                {/* Mobile Back Button */}
                 <button
-                  onClick={() => setCurrentPage('home')}
-                  className="bg-orange-400 text-black px-6 py-2 rounded-full font-medium hover:bg-orange-300 transition-all duration-200 shadow-lg"
+                  onClick={() => navigateToPage('home')}
+                  className="md:hidden bg-orange-400 text-black px-4 py-2 rounded-full font-medium hover:bg-orange-300 transition-all duration-200 shadow-lg"
                   style={{backgroundColor: '#F6A961'}}
                 >
-                  Back to Home
+                  Home
                 </button>
               </div>
             </div>
           </nav>
           
-          <BlogPage />
+          <BlogListingPage />
         </div>
       ) : (
         <>
