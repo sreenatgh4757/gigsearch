@@ -34,7 +34,6 @@ import {
   ExternalLink,
   Send
 } from 'lucide-react';
-import FloatingContactForm from './components/FloatingContactForm';
 import FAQPage from './components/FAQPage';
 import BlogPage from './components/BlogPage';
 
@@ -767,9 +766,6 @@ function App() {
           </nav>
           
           <FAQPage />
-          
-          {/* Floating Contact Form */}
-          <FloatingContactForm />
         </div>
       ) : currentPage === 'blog' ? (
         <div>
@@ -799,9 +795,6 @@ function App() {
           </nav>
           
           <BlogPage />
-          
-          {/* Floating Contact Form */}
-          <FloatingContactForm />
         </div>
       ) : (
         <>
@@ -899,9 +892,6 @@ function App() {
 
           {/* Footer */}
           <Footer />
-          
-          {/* Floating Contact Form - Independent */}
-          <FloatingContactForm />
         </>
       )}
     </div>
