@@ -115,9 +115,9 @@ const blogPosts: BlogPost[] = [
     excerpt: 'Compare traditional job boards with gig platforms and discover why flexibility wins.',
     content: 'Full content here...',
     author: {
-      name: 'James Brown',
+      name: 'Abhilash Muragi',
       avatar: '#EF4444',
-      initials: 'JB'
+      initials: 'AM'
     },
     publishedDate: '2025-01-08',
     readTime: '8 min read',
