@@ -670,3 +670,5 @@ const BlogListingPage: React.FC = () => {
 };
 
 export { BlogListingPage as default };
+
+export default BlogListingPage
