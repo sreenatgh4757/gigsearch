@@ -660,16 +660,25 @@ const BlogPage: React.FC = () => {
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <div className="flex items-center space-x-2">
                 <Eye className="h-4 w-4" />
-                <span>2,847 views</span>
+                <span>{pageViews.toLocaleString()} views</span>
               </div>
-              <div className="flex items-center space-x-2">
+              <button 
+                onClick={handleLike}
+                className={`flex items-center space-x-2 transition-colors ${
+                  hasLiked ? 'text-red-500' : 'hover:text-red-500'
+                }`}
+                disabled={hasLiked}
+              >
                 <ThumbsUp className="h-4 w-4" />
-                <span>156 likes</span>
-              </div>
-              <div className="flex items-center space-x-2">
+                <span>{likes} likes</span>
+              </button>
+              <button 
+                onClick={handleShare}
+                className="flex items-center space-x-2 hover:text-blue-500 transition-colors"
+              >
                 <Share2 className="h-4 w-4" />
                 <span>Share</span>
-              </div>
+              </button>
             </div>
             <div className="text-gray-400">
               Published: January 15, 2025 • Updated: January 15, 2025
