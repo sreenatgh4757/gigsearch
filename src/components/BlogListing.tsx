@@ -24,7 +24,8 @@ import {
   Eye,
   Heart,
   MessageCircle,
-  Star
+  Star,
+  Shield
 } from 'lucide-react';
 
 interface BlogPost {
@@ -69,9 +70,29 @@ const blogPosts: BlogPost[] = [
     featured: true,
     slug: 'indeed-vs-gig-search'
   },
+  {
+    id: '2',
+    title: 'UK Businesses Face Higher Fines for Illegal Workers — How Gig Search Can Keep You Compliant',
+    excerpt: 'New UK rules mean higher fines for hiring illegal workers. Learn how Gig Search helps businesses hire legally, avoid penalties, and stay compliant.',
+    author: {
+      name: 'Sarah Mitchell',
+      avatar: '#6366F1',
+      initials: 'SM'
+    },
+    publishedDate: '2025-01-12',
+    readTime: '12 min read',
+    category: 'Legal Compliance',
+    tags: ['UK Law', 'Compliance', 'Right to Work', 'Business Legal'],
+    featuredImage: 'https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800',
+    views: 3847,
+    likes: 198,
+    comments: 45,
+    featured: true,
+    slug: 'uk-compliance-fines'
+  },
 ];
 
-const categories = ['All', 'Job Search', 'Gig Economy', 'Freelancing', 'Productivity', 'Personal Branding', 'Remote Work'];
+const categories = ['All', 'Job Search', 'Gig Economy', 'Freelancing', 'Productivity', 'Personal Branding', 'Remote Work', 'Legal Compliance'];
 
 interface BlogListingProps {
   onNavigateToBlogPost: (slug: string) => void;
@@ -129,6 +150,7 @@ const BlogListing: React.FC<BlogListingProps> = ({ onNavigateToBlogPost }) => {
       case 'Productivity': return <Clock className="h-4 w-4" />;
       case 'Personal Branding': return <Star className="h-4 w-4" />;
       case 'Remote Work': return <Coffee className="h-4 w-4" />;
+      case 'Legal Compliance': return <Shield className="h-4 w-4" />;
       default: return <BookOpen className="h-4 w-4" />;
     }
   };
