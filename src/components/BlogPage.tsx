@@ -203,7 +203,7 @@ const BlogPage: React.FC = () => {
             When it comes to <strong>Indeed vs The Gig Search</strong>, the best choice depends on your needs. If you want structured, career-oriented roles, Indeed is a solid option. But if you value flexibility, variety, and quick earnings, The Gig Search is built for you.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <strong>Ready to take control of your student work life?</strong> Sign up on <a href="https://thegigsearch.com" className="text-blue-600 hover:text-blue-800">The Gig Search</a> today and start working on your own terms.
+            <strong>Ready to take control of your student work life?</strong> Sign up on <a href="https://thegigsearch.com" className=\"text-blue-600 hover:text-blue-800">The Gig Search</a> today and start working on your own terms.
           </p>
         </article>
       </div>
