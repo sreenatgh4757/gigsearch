@@ -37,17 +37,16 @@ import {
 import FAQPage from './components/FAQPage';
 import BlogListing from './components/BlogListing';
 import BlogPage from './components/BlogPage';
-import BlogListingPage from './components/BlogListingPage';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'workers' | 'employers'>('workers');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
-  const [currentPage, setCurrentPage] = useState<'home' | 'faq' | 'blog' | 'blog-post' | 'blog-listing'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'faq' | 'blog' | 'blog-post'>('home');
   const [currentBlogSlug, setCurrentBlogSlug] = useState<string>('');
 
   // Scroll to top when page changes
-  const navigateToPage = (page: 'home' | 'faq' | 'blog' | 'blog-post' | 'blog-listing') => {
+  const navigateToPage = (page: 'home' | 'faq' | 'blog' | 'blog-post') => {
     setCurrentPage(page);
     window.scrollTo(0, 0);
   };
@@ -811,12 +810,6 @@ function App() {
                   >
                     Blog
                   </button>
-                  <button
-                    onClick={() => navigateToPage('blog-listing')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    Blog Listing
-                  </button>
                 </div>
 
                 {/* Mobile Back Button */}
@@ -832,63 +825,6 @@ function App() {
           </nav>
           
           <BlogListing onNavigateToBlogPost={navigateToBlogPost} />
-        </div>
-      ) : currentPage === 'blog-listing' ? (
-        <div>
-          {/* Navigation for Blog Listing page */}
-          <nav className="bg-white shadow-lg sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
-                {/* Logo */}
-                <button 
-                  onClick={() => setCurrentPage('home')}
-                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
-                >
-                  <TGSLogo />
-                  <span className="text-xl font-bold text-black">The Gig Search</span>
-                </button>
-
-                {/* Navigation Links */}
-                <div className="hidden md:flex items-center space-x-8">
-                  <button
-                    onClick={() => navigateToPage('home')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    Home
-                  </button>
-                  <button
-                    onClick={() => navigateToPage('faq')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    FAQ
-                  </button>
-                  <button
-                    onClick={() => navigateToPage('blog')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    Blog
-                  </button>
-                  <button
-                    className="bg-orange-400 text-black px-4 py-2 rounded-full font-medium shadow-lg"
-                    style={{backgroundColor: '#F6A961'}}
-                  >
-                    Blog Listing
-                  </button>
-                </div>
-
-                {/* Mobile Back Button */}
-                <button
-                  onClick={() => navigateToPage('home')}
-                  className="md:hidden bg-orange-400 text-black px-4 py-2 rounded-full font-medium hover:bg-orange-300 transition-all duration-200 shadow-lg"
-                  style={{backgroundColor: '#F6A961'}}
-                >
-                  Home
-                </button>
-              </div>
-            </div>
-          </nav>
-          
-          <BlogListingPage />
         </div>
       ) : currentPage === 'blog-post' ? (
         <div>
@@ -924,12 +860,6 @@ function App() {
                     className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
                   >
                     Blog
-                  </button>
-                  <button
-                    onClick={() => navigateToPage('blog-listing')}
-                    className="text-gray-700 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full font-medium transition-all duration-200"
-                  >
-                    Blog Listing
                   </button>
                 </div>
 
